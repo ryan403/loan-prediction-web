@@ -100,8 +100,8 @@ def submit():
             Property_Area_Urban = 'selected'
         # ['Credit_History','Gender','Married','Education','Dependents','Self_Employed','Property_Area','LoanAmount_log','TotalIncome_log']
         # model_pretrained.predict([[0,1,1,0,3,1,2,np.log(150),np.log(5000)]])
-        result = model_pretrained.predict([[form_data['Credit_History'],form_data['Gender'],form_data['Married'],form_data['Education'],form_data['Dependents'],form_data['Self_Employed'],form_data['Property_Area'],np.log(int(form_data['LoanAmount'])),np.log(int(form_data['TotalIncome']))]])
-        result_proba = model_pretrained.predict_proba([[form_data['Credit_History'],form_data['Gender'],form_data['Married'],form_data['Education'],form_data['Dependents'],form_data['Self_Employed'],form_data['Property_Area'],np.log(int(form_data['LoanAmount'])),np.log(int(form_data['TotalIncome']))]])
+        result = model_pretrained.predict([[int(form_data['Credit_History']),int(form_data['Gender']),int(form_data['Married']),int(form_data['Education']),int(form_data['Dependents']),int(form_data['Self_Employed']),int(form_data['Property_Area']),np.log(int(form_data['LoanAmount'])),np.log(int(form_data['TotalIncome']))]])
+        result_proba = model_pretrained.predict_proba([[int(form_data['Credit_History']),int(form_data['Gender']),int(form_data['Married']),int(form_data['Education']),int(form_data['Dependents']),int(form_data['Self_Employed']),int(form_data['Property_Area']),np.log(int(form_data['LoanAmount'])),np.log(int(form_data['TotalIncome']))]])
         print(f'Result:{result}')
         print(f'Result_Proba:{result_proba}')
         if result[0] == 1:
